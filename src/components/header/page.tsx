@@ -6,22 +6,29 @@ import shoppingCart from "../../../public/icons/shopping-cart.png";
 import heart from "../../../public/icons/heart.png";
 import usFlag from "../../../public/icons/united-states-of-america.png";
 import user from "../../../public/icons/user.png";
+import Link from "next/link";
 
 const Header = () => {
     return (
-        <div className="bg-white flex gap-7 items-center text-black justify-between px-5">
-            <Image
-                className="max-w-24"
-                src={logo}
-                alt="Logo"
-                layout="responsive"
-            />
+        <div className="bg-white flex gap-7 items-center text-black justify-between px-5 sticky top-0 z-10">
+            <Link href={"/"} className="cursor-pointer">
+                <Image
+                    className="max-w-24"
+                    src={logo}
+                    alt="Logo"
+                    layout="responsive"
+                />
+            </Link>
 
             <div className="flex gap-3 items-center mr-auto border border-gray-400 p-2 rounded-lg">
                 <label htmlFor="">
                     <Image src={search} alt="Search Icon" width={25} />
                 </label>
-                <input type="text" className="w-96" placeholder="Search for Products" />
+                <input
+                    type="text"
+                    className="w-96"
+                    placeholder="Search for Products"
+                />
             </div>
 
             <div className="flex gap-5 items-center">
