@@ -1,5 +1,5 @@
 "use client";
-import ProductCard from "@/components/product-cart/page";
+import ProductCart from "@/components/product-cart";
 import { Product } from "@/type";
 import UseAxios from "@/hooks/useAxios";
 import { useEffect, useState } from "react";
@@ -26,7 +26,7 @@ export default function Home() {
         <div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
                 {products.map((product: Product) => (
-                    <ProductCard key={product.id} product={product} />
+                    <ProductCart key={product.id} product={product} />
                 ))}
             </div>
             <div className="w-full flex p-5 gap-20 justify-center my-10">

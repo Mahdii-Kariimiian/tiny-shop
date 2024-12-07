@@ -12,15 +12,25 @@ const ProductCart: FC<ProductCartProps> = ({ product }) => {
     const { productsToCart, setProductsToCart } = useProducts();
 
     const handleAddToCart = () => {
-        setProductsToCart((prev) => [...prev, product]);
+        const isAdded = productsToCart.find((item) => item.id === product.id);
+        if (isAdded) {
+            setProductsToCart((prev) =>
+                prev.map((item) =>
+                    item.id === product.id
+                        ? { ...item, quantity: item.quantity + 1 }
+                        : item
+                )
+            );
+        } else {
+            setProductsToCart((prev) => [...prev, { ...product, quantity: 1 }]);
+        }
     };
 
-    console.log(productsToCart);
     return (
         <div className="border rounded-lg shadow-md p-4 max-w-sm">
             <div className="w-full h-64 relative">
                 <Image
-                    src={product.images[1]}
+                    src={product.images[6]}
                     alt={product.title}
                     layout="fill"
                     objectFit="cover"
@@ -40,9 +50,8 @@ const ProductCart: FC<ProductCartProps> = ({ product }) => {
                     </span>
 
                     <Link href={`/${product.id}`}>
-                        {" "}
-                        <button className="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition">
-                            Detail{" "}
+                        <button className="px-4 py-2 text-gray-600 bg-gray-200 rounded-lg hover:bg-gray-300 transition">
+                            Detail
                         </button>
                     </Link>
 

@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { useProducts } from "@/context/products-to-cart";
 import { Product } from "@/type";
-import Link from "next/link"; // اضافه کردن Link از Next.js برای هدایت به صفحات دیگر
+import Link from "next/link";
 
 const Cart = () => {
     const { productsToCart, setProductsToCart } = useProducts();

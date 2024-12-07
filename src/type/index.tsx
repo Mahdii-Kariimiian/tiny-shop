@@ -11,7 +11,13 @@ export type Product = {
         updatedAt: string;
     };
     image: string;
-    images: string[]; // آرایه‌ای از رشته‌ها برای تصاویر
-    creationAt: string; // تاریخ ایجاد
-    updatedAt: string; // تاریخ به‌روزرسانی
+    images: string[];
+    creationAt: string;
+    updatedAt: string;
+    quantity: number;
+};
+
+export type TokenResponse = {
+    access_token: string;
+    refresh_token: string;
 };
